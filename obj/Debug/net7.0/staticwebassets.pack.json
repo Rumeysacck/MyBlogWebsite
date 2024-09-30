@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets/MyBlogWebsite.bundle.scp.css"
     },
     {
+      "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
       "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/images/rumeysacck.png",
+      "PackagePath": "staticwebassets/images/rumeysacck.png"
     },
     {
       "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/js/site.js",

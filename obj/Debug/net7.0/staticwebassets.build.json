@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Elqbn4MQMZE4R8ImVi8CnyYVuuX7Xyy3Ztm77qLU9L8=",
+  "Hash": "XOoOgKwFpk59G1ibDpIHrUDvIDk344T6rDxcjMqyr9s=",
   "Source": "MyBlogWebsite",
   "BasePath": "_content/MyBlogWebsite",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "/Users/rumeysacicek/Desktop/MyBlogWebsite/obj/Debug/net7.0/scopedcss/projectbundle/MyBlogWebsite.bundle.scp.css"
     },
     {
+      "Identity": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/.DS_Store",
+      "SourceId": "MyBlogWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/",
+      "BasePath": "_content/MyBlogWebsite",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
       "Identity": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/css/site.css",
       "SourceId": "MyBlogWebsite",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/images/rumeysacck.png",
+      "SourceId": "MyBlogWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/",
+      "BasePath": "_content/MyBlogWebsite",
+      "RelativePath": "images/rumeysacck.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/rumeysacck.png"
     },
     {
       "Identity": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/js/site.js",
