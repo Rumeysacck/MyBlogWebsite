@@ -20,47 +20,4 @@ body {
 .navbar {
   background-color: #F2EBE4 !important;
   color: #000 !important;
-  border-radius: 50px;
-  width: 90%; /* Adjusted to a percentage */
-  margin: 15px auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Adjust the nav items */
-.navbar-nav .nav-link {
-  font-weight: 600;
-  color: #000 !important; /* Menu links color */
-}
-
-/* Logo size: using % to make it more flexible */
-.navbar-brand img {
-  max-width: 15%; /* Adjusted to a percentage for responsiveness */
-  width: auto;
-  margin-left: 1em; /* Using relative units for margin */
-  margin-top: 0.5em;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 767px) {
-  .navbar {
-    border-radius: 0;
-    background-color: #F2EBE4 !important;
-    width: 100%; /* Full width for mobile */
-  }
-
-  .navbar-nav .nav-link {
-    padding: 10px 5%; /* Percent-based padding for flexibility */
-    font-size: 1rem; /* Responsive font size */
-  }
-
-  .navbar-brand img {
-    max-width: 25%; /* Adjusted for mobile screens */
-  }
-}
-#fadeImage {
-  opacity: 0; 
-  transition: opacity 2s ease-in-out; 
-  max-width: 60%; 
-  margin: auto; 
-  margin-top: 150px;
-}
+  border-radiu
