@@ -1,61 +1,62 @@
+/* General settings */
 html {
   font-size: 14px;
 }
 
+/* For larger screens */
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+}
+}
+
+/* General body styling */
+body {
+  margin-bottom: 60px;
+  background-color: #FFFBF5;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #F2EBE4 !important;
+  color: #000 !important;
+  border-radius: 50px;
+  width: 90%; /* Adjusted to a percentage */
+  margin: 15px auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust the nav items */
+.navbar-nav .nav-link {
+  font-weight: 600;
+  color: #000 !important; /* Menu links color */
+}
+
+/* Logo size: using % to make it more flexible */
+.navbar-brand img {
+  max-width: 15%; /* Adjusted to a percentage for responsiveness */
+  width: auto;
+  margin-left: 1em; /* Using relative units for margin */
+  margin-top: 0.5em;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 767px) {
+  .navbar {
+    border-radius: 0;
+    background-color: #F2EBE4 !important;
+    width: 100%; /* Full width for mobile */
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 5%; /* Percent-based padding for flexibility */
+    font-size: 1rem; /* Responsive font size */
+  }
+
+  .navbar-brand img {
+    max-width: 25%; /* Adjusted for mobile screens */
   }
 }
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-    margin-bottom: 60px;
-    background-color: #FFFBF5;
-    
-}
-
-
-.navbar-nav .nav-link {
-    font-weight: 600;
-    color: #000 !important; /* Menü linkleri rengi */
-}
-
-nav.navbar {
-    border-radius: 50px;
-    
-}
-
-.navbar {
-    background-color: #F2EBE4 !important; /* Arka plan rengi */
-    color: #000 !important; /* Yazı rengi */
-    border-radius: inherit;
-    margin-top: 15px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    border-bottom: none !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.navbar-toggler-icon {
-    background-color: #000 !important; /* Mobil ikon rengi */
-}
-.navbar-brand img {
-  max-width: 100px;
-  width: auto;
-  display: inline-block;
-  margin-left: 15px; 
-  margin-top: 5px;
-}
-
 #fadeImage {
   opacity: 0; 
   transition: opacity 2s ease-in-out; 
