@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rumeysacicek/Desktop/MyBlghWebsite/MyBlghWebsite.csproj",
-      "projectName": "MyBlghWebsite",
-      "projectPath": "/Users/rumeysacicek/Desktop/MyBlghWebsite/MyBlghWebsite.csproj",
+      "projectUniqueName": "/Users/rumeysacicek/Desktop/MyBlogWebsite/MyBlogWebsite.csproj",
+      "projectName": "MyBlogWebsite",
+      "projectPath": "/Users/rumeysacicek/Desktop/MyBlogWebsite/MyBlogWebsite.csproj",
       "packagesPath": "/Users/rumeysacicek/.nuget/packages/",
-      "outputPath": "/Users/rumeysacicek/Desktop/MyBlghWebsite/obj/",
+      "outputPath": "/Users/rumeysacicek/Desktop/MyBlogWebsite/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/rumeysacicek/.nuget/NuGet/NuGet.Config"
