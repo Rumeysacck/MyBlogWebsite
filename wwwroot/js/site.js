@@ -2,3 +2,12 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('#altIcerik').addClass('gorunur');
+        } else {
+            $('#altIcerik').removeClass('gorunur');
+        }
+    });
+});
