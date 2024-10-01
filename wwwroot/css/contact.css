@@ -6,7 +6,7 @@ body{
   }
   .contact_us{
       background-color: #FFFBF5;
-      padding: 20px 0px;
+      padding: 20px 0px 50px ;
   }
   
   .contact_inner{
@@ -16,18 +16,19 @@ body{
       border-radius: 25px;
   }
   .contact_field{
-      padding: 60px 340px 90px 100px;
+      padding: 40px 340px 90px 50px;
   }
   .right_conatct_social_icon{
       height: 100%;
   }
   
   .contact_field h3{
-     color: #000;
-      font-size: 40px;
-      letter-spacing: 1px;
-      font-weight: 600;
-      margin-bottom: 10px
+    color: #000;
+    font-size: 40px;
+    letter-spacing: 1px;
+    font-weight: 500; 
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
   }
   .contact_field p{
       color: #000;
@@ -60,11 +61,15 @@ body{
       width: 340px;
       padding: 40px;
       border-radius: 25px 0 0 25px;
+      
   }
   .contact_info_sec h4{
       letter-spacing: 1px;
       padding-bottom: 15px;
       color: #000;
+      font-size: 30px;
+      font-weight: 500; 
+      font-family: 'Playfair Display', serif;
   }
   
   .info_single{
@@ -126,3 +131,6 @@ body{
       border-radius: 30px;
       overflow: hidden;
   }
+  .form-fields {
+    margin-top: -30px; 
+}
