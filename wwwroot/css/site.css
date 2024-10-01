@@ -1,66 +1,203 @@
-/* General settings */
 html {
   font-size: 14px;
 }
 
-/* For larger screens */
 @media (min-width: 768px) {
   html {
     font-size: 16px;
-}
+  }
 }
 
-/* General body styling */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  margin-bottom: 60px;
-  background-color: #FFFBF5;
+    margin-bottom: 60px;
+    background-color: #fffbf5;
+    
 }
 
-/* Navbar styling */
-.navbar {
-  background-color: #F2EBE4 !important;
-  color: #000 !important;
-  border-radius: 50px;
-  width: 90%; /* Adjusted to a percentage */
-  margin: 15px auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-/* Adjust the nav items */
 .navbar-nav .nav-link {
-  font-weight: 600;
-  color: #000 !important; /* Menu links color */
+    font-weight: 600;
+    color: #000 !important; /* Menü linkleri rengi */
 }
 
-/* Logo size: using % to make it more flexible */
-.navbar-brand img {
-  max-width: 15%; /* Adjusted to a percentage for responsiveness */
-  width: auto;
-  margin-left: 1em; /* Using relative units for margin */
-  margin-top: 0.5em;
+nav.navbar {
+    border-radius: 50px;
+    
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 767px) {
-  .navbar {
-    border-radius: 0;
-    background-color: #F2EBE4 !important;
-    width: 100%; /* Full width for mobile */
-  }
-
-  .navbar-nav .nav-link {
-    padding: 10px 5%; /* Percent-based padding for flexibility */
-    font-size: 1rem; /* Responsive font size */
-  }
-
-  .navbar-brand img {
-    max-width: 25%; /* Adjusted for mobile screens */
-  }
+.navbar {
+    background-color: #F2EBE4 !important; /* Arka plan rengi */
+    color: #000 !important; /* Yazı rengi */
+    border-radius: inherit;
+    margin-top: 15px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.navbar-toggler-icon {
+    background-color: #000 !important; /* Mobil ikon rengi */
+}
+
 #fadeImage {
   opacity: 0; 
   transition: opacity 2s ease-in-out; 
   max-width: 60%; 
   margin: auto; 
   margin-top: 150px;
+}
+
+
+
+#about-headline {
+    font-family: 'Telex', sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 25px;
+    line-height: 1.2;
+    color: #301934;
+}
+.navbar-brand img {
+    max-width: 100px;
+    width: auto;
+    display: inline-block;
+    margin-left: 15px; 
+    margin-top: 5px;
+}
+
+#about-myPicture {
+    float: left;
+    margin-top: 28px;
+    margin-right: 30px;
+    margin-left: 150px;
+    max-width: 450px;
+    max-height: 450px;
+    position: relative;
+    padding-right: 30px;
+}
+
+#about-text {
+    color: #1c1c1c;
+    text-align: center;
+    margin-top: 38px;
+    margin-left: 50px;
+    max-width: calc(100% - 100px);
+    font-size:large;
+}
+
+.about-image-beceri,
+.about-image-ilgi {
+    display: inline-block; 
+    margin-right: 25px; 
+    
+}
+
+.additional-image {
+    width: 620px; 
+    height: auto;
+    margin-top: 60px;
+}
+
+.article-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section {
+    flex: 1;
+}
+
+
+.section-title {
+    color: #301934;
+    font-size: 30px;
+    font-family: 'Telex', sans-serif;
+    margin-top: 30px;
+    margin-left:270px;
+}
+.section-title2 {
+    color: #301934;
+    font-size: 30px;
+    font-family: 'Telex', sans-serif;
+    margin-top: 30px;
+    margin-left: 90px;
+}
+.section-title3 {
+    color: #301934;
+    font-size: 30px;
+    font-family: 'Telex', sans-serif;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.frc,
+.gdsc {
+    margin-left: 50px;
+    max-width: calc(80% - 20px);
+    color: #1c1c1c;
+    font-size: large;
+    text-align: center;
+}
+.ieee {
+    
+    max-width: calc(80% - 20px);
+    color: #1c1c1c;
+    font-size: large;
+    text-align: center;
+    margin-left:130px;
+}
+
+
+/* Blog sayfası */
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+     
+}
+.blog-title {
+    text-align:center;
+    
+}
+
+.blog-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    width: 50%;
+    height: 200px;
+    display: flex;
+    overflow: hidden;
+    float: left;
+    
+}
+    /* Fotoğrafı kutucuğun içinde tut */
+    .blog-box img {
+        max-width: 33%; /* Resmin genişliğini kutucuğun üçte birine ayarla */
+        height: 100%; /* Resmin yüksekliğini kutucuğun yüksekliğine ayarla */
+        object-fit: cover; /* Resmin boyutunu koruyarak sığdır */
+        margin-right: 10px;
+    }
+    /* Metin bölgesi */
+    .blog-box .text-content {
+        flex-grow: 1; /* Metin içeriğini genişleterek boş alanı kapla */
+    }
+
+.blog-details {
+    
+    padding: 10px;
+    margin: 10px;
 }
