@@ -45,7 +45,7 @@ body{
   .contact_field .form-control:focus{
       box-shadow: none;
       outline: none;
-      border-bottom: 2px solid #3f0808;
+      border-bottom: 2px solid #a74a4f;
   }
   .contact_field .form-control::placeholder{
       font-size: 13px;
@@ -54,9 +54,9 @@ body{
   
   .contact_info_sec {
       position: absolute;
-      background-color: #eee0e5;
+      background-color: #724540 ;
       right: 1px;
-      top: 18%;
+      top: 14%;
       height: 340px;
       width: 340px;
       padding: 40px;
@@ -64,8 +64,8 @@ body{
       
   }
   .contact_info_sec h4{
-      letter-spacing: 1px;
-      padding-bottom: 15px;
+      
+      padding-bottom: 0px;
       color: #fff;
       font-size: 30px;
       font-weight: 500; 
@@ -90,7 +90,7 @@ body{
   }
   
   button.contact_form_submit {
-      background: linear-gradient(to top right, #482020 -5%, #482020 100%);
+      background: linear-gradient(to top right, #724540 -5%, #482020 100%);
       border: none;
       color: #fff;
       padding: 5px 10px;
@@ -133,4 +133,7 @@ body{
   }
   .form-fields {
     margin-top: -30px; 
+}
+.d-flex info_single align-items-center{
+    margin-top:1px;
 }
