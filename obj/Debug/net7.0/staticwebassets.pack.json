@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets/images/rumeysacck.png"
     },
     {
+      "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/js/blog.js",
+      "PackagePath": "staticwebassets/js/blog.js"
+    },
+    {
       "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },
