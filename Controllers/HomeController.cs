@@ -35,10 +35,32 @@ public class HomeController : Controller
         // You can add authorization logic here if needed.
            return View();
     }
+    [HttpGet]
     public IActionResult Login()
     {
-        return View(); // Ensure that you have a Login.cshtml view file.
+        return View();
     }
+
+    // Giriş işlemi için POST isteği
+    [HttpPost]
+    public IActionResult Login(string email, string password)
+    {
+        // Ortam değişkenlerinden admin email ve şifresini alıyoruz
+        var adminEmail = Environment.GetEnvironmentVariable("ADMIN_EMAIL");
+        var adminPassword = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
+
+        // Kullanıcıdan alınan email ve şifre ortam değişkenlerindeki değerlerle eşleşiyorsa
+        if (email == adminEmail && password == adminPassword)
+        {
+            // Giriş başarılı, admin paneline yönlendir
+            return RedirectToAction("AdminPanel");
+        }
+
+        // Giriş başarısızsa, hata mesajı döndür
+        ViewBag.Error = "Geçersiz kullanıcı adı veya şifre.";
+        return View();
+    }
+
 
     public IActionResult Portfolio()
     {
