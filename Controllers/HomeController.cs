@@ -35,6 +35,10 @@ public class HomeController : Controller
         // You can add authorization logic here if needed.
            return View();
     }
+    public IActionResult Login()
+    {
+        return View(); // Ensure that you have a Login.cshtml view file.
+    }
 
     public IActionResult Portfolio()
     {

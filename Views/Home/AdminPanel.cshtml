@@ -3,41 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AngularJS Firebase Blog</title>
+  <title>Admin Panel - AngularJS Firebase Blog</title>
+  
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  
   <!-- Custom JS -->
-  <script src="blog.js"></script>
+  <script src="~/js/blog.js"></script>
+  
   <style>
     body { font-family: Arial, sans-serif; }
     .blog-post { margin-bottom: 20px; }
+    #loading { display: none; text-align: center; }
   </style>
 </head>
 <body ng-controller="BlogController">
 
-  <h1>AngularJS Blog with Firebase</h1>
+  <h1>AngularJS Blog with Firebase - Admin Panel</h1>
 
-  <!-- Blog Form -->
-  <form ng-submit="addBlog()">
-    <input type="text" ng-model="newBlog.title" placeholder="Başlık" required /><br><br>
-    <textarea ng-model="newBlog.content" placeholder="İçerik" required></textarea><br><br>
-    <input type="text" ng-model="newBlog.author" placeholder="Yazar" required /><br><br>
-    <button type="submit">Gönder</button>
-  </form>
+  <!-- Yükleniyor Göstergesi -->
+  <div id="loading">Yükleniyor...</div>
 
-  <hr>
-
-  <!-- Blog List -->
-  <div ng-repeat="blog in blogs" class="blog-post">
-    <h2>{{blog.title}}</h2>
-    <p>{{blog.content}}</p>
-    <p><strong>{{blog.author}}</strong> - {{blog.date}}</p>
-    <button ng-click="deleteBlog(blog.key)">Sil</button>
+  <!-- Blog Form - Sadece oturum açmış kullanıcılar görebilecek -->
+  <div id="blog-content" style="display: none;">
+    <form ng-submit="addBlog()">
+      <input type="text" ng-model="newBlog.title" placeholder="Başlık" required /><br><br>
+      <textarea ng-model="newBlog.content" placeholder="İçerik" required></textarea><br><br>
+      <input type="text" ng-model="newBlog.author" placeholder="Yazar" required /><br><br>
+      <button type="submit">Gönder</button>
+    </form>
+  
     <hr>
+  
+    <!-- Blog Listesi -->
+    <div ng-repeat="blog in blogs" class="blog-post">
+      <h2>{{blog.title}}</h2>
+      <p>{{blog.content}}</p>
+      <p><strong>{{blog.author}}</strong> - {{blog.date}}</p>
+      <button ng-click="deleteBlog(blog.key)">Sil</button>
+      <hr>
+    </div>
   </div>
+
+  <!-- Firebase Authentication Script -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "API_KEY",
+      authDomain: "yourproject.firebaseapp.com",
+      databaseURL: "https://yourproject-default-rtdb.firebaseio.com",
+      projectId: "yourproject",
+      storageBucket: "yourproject.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abc123"
+    };
+
+    // Firebase'i başlat
+    firebase.initializeApp(firebaseConfig);
+
+    // Kullanıcı oturumunu kontrol et
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // Kullanıcı giriş yapmışsa, blog içeriğini göster
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('blog-content').style.display = 'block';
+      } else {
+        // Giriş yapılmamışsa login sayfasına yönlendir
+        window.location.href = '/Home/Login';
+      }
+    });
+  </script>
 
 </body>
 </html>

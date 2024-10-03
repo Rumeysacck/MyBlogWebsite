@@ -17,27 +17,52 @@ app.controller('BlogController', function($scope) {
 
   firebase.initializeApp(firebaseConfig);
 
-  // Blogları çek
-  var blogRef = firebase.database().ref('blogs');
-
-  blogRef.on('value', function(snapshot) {
-    var data = snapshot.val();
-    var blogs = [];
-    for (var key in data) {
-      data[key].key = key;  // Anahtarı da kaydet
-      blogs.push(data[key]);
-    }
-
-    // Instead of calling $scope.$apply directly, check for $$phase
-    if (!$scope.$$phase) {
-      $scope.$apply(function() {
-        $scope.blogs = blogs;
+  // Check if the user is authenticated and admin
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // Firestore'da kullanıcıyı kontrol et (Firestore kullanıyorsanız)
+      var userRef = firebase.firestore().collection('users').doc(user.uid);
+      userRef.get().then((doc) => {
+        if (doc.exists && doc.data().isAdmin) {
+          // Kullanıcı admin, blog içeriklerini göster
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('blog-content').style.display = 'block';
+          loadBlogs(); // Load blogs only if user is authenticated and admin
+        } else {
+          // Kullanıcı admin değil, giriş sayfasına yönlendir
+          window.location.href = '/Home/Login';
+        }
       });
     } else {
-      // Alternatively, use $scope.$applyAsync()
-      $scope.blogs = blogs;
+      // Giriş yapılmamışsa login sayfasına yönlendir
+      window.location.href = '/Home/Login';
     }
   });
+
+  // Function to load blogs
+  function loadBlogs() {
+    // Blogları çek
+    var blogRef = firebase.database().ref('blogs');
+
+    blogRef.on('value', function(snapshot) {
+      var data = snapshot.val();
+      var blogs = [];
+      for (var key in data) {
+        data[key].key = key;  // Anahtarı da kaydet
+        blogs.push(data[key]);
+      }
+
+      // Instead of calling $scope.$apply directly, check for $$phase
+      if (!$scope.$$phase) {
+        $scope.$apply(function() {
+          $scope.blogs = blogs;
+        });
+      } else {
+        // Alternatively, use $scope.$applyAsync()
+        $scope.blogs = blogs;
+      }
+    });
+  }
 
   // Yeni blog ekle
   $scope.addBlog = function() {
