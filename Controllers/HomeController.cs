@@ -26,20 +26,21 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult VBlog()
+    public IActionResult Blogs()
+    {
+        return View();
+    }
+    public IActionResult AdminPanel()
+    {
+        // You can add authorization logic here if needed.
+           return View();
+    }
+
+    public IActionResult Portfolio()
     {
         return View();
     }
 
-    public IActionResult Projects()
-    {
-        return View();
-    }
-
-    public IActionResult Guests()
-    {
-        return View();
-    }
 
     public IActionResult Contact()
     {
