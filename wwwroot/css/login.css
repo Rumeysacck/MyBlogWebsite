@@ -1,0 +1,131 @@
+@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
+
+body {
+    margin: 0;
+    font-family: arial, tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    direction: ltr;
+    background: #fffbf5;
+}
+
+form.login-form {
+    margin: 2% auto 0 auto;
+    padding: 30px;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+    background: white;
+    border-radius: 25px;
+}
+
+form.login-form label {
+    font-size: 14px;
+    color: darkgray;
+    cursor: pointer;
+}
+
+form.login-form label,
+form.login-form input {
+    float: left;
+    clear: both;
+}
+
+form.login-form input {
+    margin: 15px 0;
+    padding: 15px 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #bbb;
+    border-radius: 20px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -ms-transition: 0.2s ease all;
+    -o-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+}
+
+form.login-form input[type="text"]:focus,
+form.login-form input[type="password"]:focus {
+    border-color: #562525;
+}
+
+form.login-form input[type=submit] {
+    padding: 15px 50px;
+    width: auto;
+    background: #562525;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    clear: right;
+    -webkit-transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -ms-transition: 0.2s ease all;
+    -o-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+}
+
+form.login-form input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+form.login-form input[type="submit"]:active {
+    opacity: 0.4;
+}
+
+form.login-form .forgot,
+form.login-form .register {
+    margin: 10px;
+    float: left;
+    clear: left;
+    display: inline-block;
+    color: cornflowerblue;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form.login-form .forgot:hover,
+form.login-form .register:hover {
+    color: darkgray;
+}
+
+
+form.login-form .show-password {
+    margin: 10px;
+    float: right; /* Butonu sağa hizalıyoruz */
+    display: inline-block;
+    color: cornflowerblue;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: -1px; /* Şifre alanının altına konumlandırıyoruz */
+}
+
+form.login-form .show-password:hover {
+    color: darkgray;
+}
+
+form.login-form #logo {
+    margin: 0 auto;
+    width: 200px;
+    font-family: 'Lily Script One', cursive;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    color: lightgray;
+    -webkit-transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -ms-transition: 0.2s ease all;
+    -o-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+}
+
+form.login-form #logo:hover {
+    color: #562525;
+}
