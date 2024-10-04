@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "skZzAULZUr+UmqY5xRgxjtY865hU+sevAZz9sglEUn8=",
+  "Hash": "eVgu0Pd+loqQsGFPzsQut6K/DqVZv34e5VcQw53DncI=",
   "Source": "MyBlogWebsite",
   "BasePath": "_content/MyBlogWebsite",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
+      "Identity": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/css/blog.css",
+      "SourceId": "MyBlogWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/",
+      "BasePath": "_content/MyBlogWebsite",
+      "RelativePath": "css/blog.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/blog.css"
     },
     {
       "Identity": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/css/contact.css",

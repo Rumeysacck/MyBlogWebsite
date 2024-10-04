@@ -2,12 +2,82 @@
     ViewData["Title"] = "Admin Panel";
 }
 
-<h1>Admin Panel</h1>
 
-<p>Bu sayfa sadece admin kullanıcılar tarafından erişilebilir.</p>
+<div class="container mt-4">
+    <h2>Yeni Blog Yazısı Ekle</h2>
+    <form id="blogForm">
+        <div class="form-group">
+            <label for="blogTitle">Blog Başlığı</label>
+            <input type="text" id="blogTitle" class="form-control" placeholder="Başlık" required />
+        </div>
+        <div class="form-group">
+            <label for="blogDate">Yayınlanma Tarihi</label>
+            <input type="date" id="blogDate" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="blogSummary">Özet</label>
+            <textarea id="blogSummary" class="form-control" placeholder="Özet" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="blogContent">İçerik</label>
+            <textarea id="blogContent" class="form-control" placeholder="İçerik" rows="8" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="blogImage">Blog Fotoğrafı URL</label>
+            <input type="text" id="blogImage" class="form-control" placeholder="Fotoğraf URL'si" required />
+        </div>
+        <button type="button" onclick="saveBlog()" class="btn btn-primary">Blog Yazısını Kaydet</button>
+    </form>
+</div>
 
-<!-- Admin işlemlerini buraya ekleyebilirsiniz -->
+<!-- Firebase ve Blog Ekleme Fonksiyonları -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 
-<form method="post" action="/Home/Logout">
-    <button type="submit">Çıkış Yap</button>
-</form>
+<script>
+  // Firebase konfigürasyonu
+  const firebaseConfig = {
+    apiKey: "AIzaSyBA9iw4sDlYn4BibKRSSDI2MpGdJWSymEA",
+    authDomain: "myblog-f187d.firebaseapp.com",
+    databaseURL: "https://PROJECT_ID.firebaseio.com",
+    projectId: "myblog-f187d",
+    storageBucket: "myblog-f187d.appspot.com",
+    messagingSenderId: "561017129023",
+    appId: "1:561017129023:web:3d91390a57affca1c7508a"
+  };
+
+ // Firebase başlatma
+  firebase.initializeApp(firebaseConfig);
+
+  // Blog kaydetme fonksiyonu
+  function saveBlog() {
+      const title = document.getElementById('blogTitle').value;
+      const date = document.getElementById('blogDate').value;
+      const summary = document.getElementById('blogSummary').value;
+      const content = document.getElementById('blogContent').value;
+      const image = document.getElementById('blogImage').value;
+
+      if (!title || !date || !summary || !content || !image) {
+          alert("Lütfen tüm alanları doldurun!");
+          return;
+      }
+
+      const blogData = {
+          title: title,
+          date: date,
+          summary: summary,
+          content: content,
+          image: image
+      };
+
+      // Firebase'e blog kaydetme
+      firebase.database().ref('blogs').push(blogData)
+          .then(() => {
+              alert("Blog başarıyla kaydedildi!");
+              window.location.href = "/Home/Blogs"; // Bloglarım sayfasına yönlendir
+          })
+          .catch((error) => {
+              console.error("Hata:", error);
+          });
+  }
+</script>

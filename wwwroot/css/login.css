@@ -98,13 +98,13 @@ form.login-form .register:hover {
 
 form.login-form .show-password {
     margin: 10px;
-    float: right; /* Butonu sağa hizalıyoruz */
+    float: right;
     display: inline-block;
     color: cornflowerblue;
     text-decoration: none;
     cursor: pointer;
     position: relative;
-    top: -1px; /* Şifre alanının altına konumlandırıyoruz */
+    top: -1px; 
 }
 
 form.login-form .show-password:hover {

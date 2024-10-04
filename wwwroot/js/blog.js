@@ -1,4 +1,4 @@
-var app = angular.module('blogApp', []);
+
 
 // BlogController
 app.controller('BlogController', function($scope) {
@@ -15,74 +15,40 @@ app.controller('BlogController', function($scope) {
     measurementId: "G-56H676KPTL"
   };
 
-  firebase.initializeApp(firebaseConfig);
 
-  // Check if the user is authenticated and admin
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // Firestore'da kullanıcıyı kontrol et (Firestore kullanıyorsanız)
-      var userRef = firebase.firestore().collection('users').doc(user.uid);
-      userRef.get().then((doc) => {
-        if (doc.exists && doc.data().isAdmin) {
-          // Kullanıcı admin, blog içeriklerini göster
-          document.getElementById('loading').style.display = 'none';
-          document.getElementById('blog-content').style.display = 'block';
-          loadBlogs(); // Load blogs only if user is authenticated and admin
-        } else {
-          // Kullanıcı admin değil, giriş sayfasına yönlendir
-          window.location.href = '/Home/Login';
-        }
-      });
-    } else {
-      // Giriş yapılmamışsa login sayfasına yönlendir
-      window.location.href = '/Home/Login';
+// Firebase'i başlat
+firebase.initializeApp(firebaseConfig);
+
+// Blog kaydetme fonksiyonu
+function saveBlog() {
+    const title = document.getElementById('blogTitle').value;
+    const date = document.getElementById('blogDate').value;
+    const summary = document.getElementById('blogSummary').value;
+    const content = document.getElementById('blogContent').value;
+    const image = document.getElementById('blogImage').value;
+
+    // Tüm alanlar dolu mu kontrol edelim
+    if (!title || !date || !summary || !content || !image) {
+        alert("Lütfen tüm alanları doldurun!"); // Alanlar boş ise uyarı ver
+        return;
     }
-  });
 
-  // Function to load blogs
-  function loadBlogs() {
-    // Blogları çek
-    var blogRef = firebase.database().ref('blogs');
-
-    blogRef.on('value', function(snapshot) {
-      var data = snapshot.val();
-      var blogs = [];
-      for (var key in data) {
-        data[key].key = key;  // Anahtarı da kaydet
-        blogs.push(data[key]);
-      }
-
-      // Instead of calling $scope.$apply directly, check for $$phase
-      if (!$scope.$$phase) {
-        $scope.$apply(function() {
-          $scope.blogs = blogs;
-        });
-      } else {
-        // Alternatively, use $scope.$applyAsync()
-        $scope.blogs = blogs;
-      }
-    });
-  }
-
-  // Yeni blog ekle
-  $scope.addBlog = function() {
-    var newBlog = {
-      title: $scope.newBlog.title,
-      content: $scope.newBlog.content,
-      author: $scope.newBlog.author,
-      date: new Date().toISOString().slice(0, 10)
+    const blogData = {
+        title: title,
+        date: date,
+        summary: summary,
+        content: content,
+        image: image
     };
 
-    // Firebase'e kaydet
-    var newBlogKey = firebase.database().ref().child('blogs').push().key;
-    firebase.database().ref('blogs/' + newBlogKey).set(newBlog);
-
-    // Formu temizle
-    $scope.newBlog = {};
-  };
-
-  // Blog sil
-  $scope.deleteBlog = function(blogKey) {
-    firebase.database().ref('blogs/' + blogKey).remove();
-  };
-});
+    // Firebase'e ekleme işlemi
+    firebase.database().ref('blogs').push(blogData)
+        .then(() => {
+            alert("Blog başarıyla kaydedildi!");
+            document.getElementById('blogForm').reset(); // Formu temizle
+        })
+        .catch((error) => {
+            console.error("Hata:", error);
+        });
+}
+})
