@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Mail;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http; // Session kullanımı için gerekli
 using MyBlogWebsite.Models;
 
 namespace MyWebsite.Controllers;
@@ -15,7 +16,8 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-
+    // Varsayılan olarak açılan Home/Index
+    [HttpGet]
     public IActionResult Index()
     {
         return View();
@@ -30,11 +32,8 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult AdminPanel()
-    {
-        // You can add authorization logic here if needed.
-           return View();
-    }
+
+    // Giriş formunu göstermek için GET isteği
     [HttpGet]
     public IActionResult Login()
     {
@@ -52,7 +51,8 @@ public class HomeController : Controller
         // Kullanıcıdan alınan email ve şifre ortam değişkenlerindeki değerlerle eşleşiyorsa
         if (email == adminEmail && password == adminPassword)
         {
-            // Giriş başarılı, admin paneline yönlendir
+            // Giriş başarılı, session'a bilgiyi yazıyoruz
+            HttpContext.Session.SetString("isAdmin", "true");
             return RedirectToAction("AdminPanel");
         }
 
@@ -61,33 +61,41 @@ public class HomeController : Controller
         return View();
     }
 
+    // Admin Paneli
+    [HttpGet]
+    public IActionResult AdminPanel()
+    {
+        // Kullanıcı admin mi kontrol ediliyor
+        if (HttpContext.Session.GetString("isAdmin") != "true")
+        {
+            return RedirectToAction("Login");
+        }
+        
+        return View();
+    }
+
+    // Kullanıcı çıkış işlemi
+    [HttpPost]
+    public IActionResult Logout()
+    {
+        // Session sonlandırılıyor
+        HttpContext.Session.Clear();
+        return RedirectToAction("Index");
+    }
 
     public IActionResult Portfolio()
     {
         return View();
     }
 
-
     public IActionResult Contact()
     {
         return View();
     }
-
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-
-
-
-
-
-
-
-
-
-
 }
-
