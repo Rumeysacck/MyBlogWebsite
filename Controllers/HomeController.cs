@@ -32,8 +32,13 @@ public class HomeController : Controller
     }
     public IActionResult AdminPanel()
     {
-        // You can add authorization logic here if needed.
-           return View();
+        if (HttpContext.Session.GetString("isAdmin") != "true")
+        {
+            return RedirectToAction("Login");
+        }
+
+        return View();
+        
     }
     [HttpGet]
     public IActionResult Login()

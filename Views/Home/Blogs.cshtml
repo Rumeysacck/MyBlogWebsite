@@ -1,70 +1,21 @@
 @{
-    ViewData["Title"] = "Blogs";
-
+    ViewData["Title"] = "Bloglarım";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="blog-slider">
     <div class="blog-slider__wrp swiper-wrapper" id="blogSlider">
-        <!-- Bloglar burada listelenecek -->
+        <!-- Bloglar burada Firebase'den çekilecek -->
     </div>
     <div class="blog-slider__pagination"></div>
 </div>
 
-<!-- Firebase ve Blogları Listeleme Fonksiyonları -->
+<!-- Swiper slider için CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script src="~/js/blogList.js"></script>
 
-<script>
-  // Firebase konfigürasyonu
-  const firebaseConfig = {
-    apiKey: "AIzaSyBA9iw4sDlYn4BibKRSSDI2MpGdJWSymEA",
-    authDomain: "myblog-f187d.firebaseapp.com",
-    databaseURL: "https://PROJECT_ID.firebaseio.com",
-    projectId: "myblog-f187d",
-    storageBucket: "myblog-f187d.appspot.com",
-    messagingSenderId: "561017129023",
-    appId: "1:561017129023:web:3d91390a57affca1c7508a"
-  };
-
-  // Firebase başlatma
-  firebase.initializeApp(firebaseConfig);
-
-  // Blogları listeleme
-  firebase.database().ref('blogs').on('value', function(snapshot) {
-      const blogSlider = document.getElementById('blogSlider');
-      blogSlider.innerHTML = ''; // Mevcut listeyi temizle
-
-      snapshot.forEach(function(childSnapshot) {
-          const blog = childSnapshot.val();
-
-          // Blogu slider'a ekle
-          blogSlider.innerHTML += `
-            <div class="blog-slider__item swiper-slide">
-              <div class="blog-slider__img">
-                <img src="${blog.image}" alt="Blog Image">
-              </div>
-              <div class="blog-slider__content">
-                <span class="blog-slider__code">${blog.date}</span>
-                <div class="blog-slider__title">${blog.title}</div>
-                <div class="blog-slider__text">${blog.summary}</div>
-                <a href="#" class="blog-slider__button">READ MORE</a>
-              </div>
-            </div>`;
-      });
-  });
-</script>
-
-<!-- Swiper Slider CSS ve JS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-  var swiper = new Swiper('.blog-slider', {
-      spaceBetween: 30,
-      effect: 'fade',
-      loop: true,
-      pagination: {
-          el: '.blog-slider__pagination',
-          clickable: true,
-      }
-  });
-</script>
+<script
