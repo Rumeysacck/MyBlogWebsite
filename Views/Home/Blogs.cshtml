@@ -1,21 +1,33 @@
-@{
-    ViewData["Title"] = "Bloglarım";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@model Newtonsoft.Json.Linq.JObject
 
 <div class="blog-slider">
-    <div class="blog-slider__wrp swiper-wrapper" id="blogSlider">
-        <!-- Bloglar burada Firebase'den çekilecek -->
+    <div class="blog-slider__wrp swiper-wrapper">
+        @if (Model != null && Model.HasValues)
+        {
+            foreach (var blog in Model.Properties())
+            {
+                var blogContent = blog.Value; // Access the content of the blog object
+                
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__img">
+                        <img src="@blogContent["image"]" alt="Blog Image">
+                    </div>
+                    <div class="blog-slider__content">
+                        <span class="blog-slider__code">@blogContent["date"]</span>
+                        <div class="blog-slider__title">@blogContent["title"]</div>
+                        <div class="blog-slider__text">@blogContent["content"]</div>
+                        <a href="#" class="blog-slider__button">READ MORE</a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No blogs available.</p>
+        }
     </div>
     <div class="blog-slider__pagination"></div>
 </div>
 
-<!-- Swiper slider için CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-<script src="~/js/blogList.js"></script>
-
+<!-- Add your Swiper script here -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script

@@ -1,47 +1,51 @@
-// Firebase başlatma kodları
+// Initialize Firebase
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 
-// Firebase config dosyası
+// Firebase config
 const firebaseConfig = {
     apiKey: "AIzaSyBA9iw4sDlYn4BibKRSSDI2MpGdJWSymEA",
-    authDomain: "myblog-f187d.firebaseapp.com",
-    databaseURL: "https://myblog-f187d-default-rtdb.europe-west1.firebasedatabase.app/",
-    projectId: "myblog-f187d",
-    storageBucket: "myblog-f187d.appspot.com",
-    messagingSenderId: "561017129023",
-    appId: "1:561017129023:web:3d91390a57affca1c7508a",
-    measurementId: "G-56H676KPTL"
+  authDomain: "myblog-f187d.firebaseapp.com",
+  databaseURL: "https://myblog-f187d-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "myblog-f187d",
+  storageBucket: "myblog-f187d.appspot.com",
+  messagingSenderId: "561017129023",
+  appId: "1:561017129023:web:3d91390a57affca1c7508a",
+  measurementId: "G-56H676KPTL"
 };
 
-// Firebase'i başlat
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// Blog formunu dinleme
-document.getElementById('blogForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Formun varsayılan davranışını durdur
-
-    // Formdan değerleri al
-    const title = document.getElementById('blogTitle').value;
-    const author = document.getElementById('blogAuthor').value;
-    const date = document.getElementById('blogDate').value;
-    const content = document.getElementById('blogContent').value;
-    const image = document.getElementById('blogImage').value || 'https://placehold.co/600x400'; // Varsayılan görsel URL
-
-    // Blogu Firebase'e kaydet
+// Retrieve and display blogs
+function displayBlogs() {
     const blogRef = ref(database, 'blogs');
-    push(blogRef, {
-        title: title,
-        author: author,
-        date: date,
-        content: content,
-        image: image
-    }).then(() => {
-        alert("Blog başarıyla kaydedildi!");
-        // Formu temizle
-        document.getElementById('blogForm').reset();
-    }).catch(error => {
-        console.error("Hata oluştu:", error);
+    const blogSlider = document.getElementById('blogSlider');
+    
+    // Listen for changes in the blogs
+    onValue(blogRef, (snapshot) => {
+        blogSlider.innerHTML = ''; // Clear the existing content
+        
+        snapshot.forEach((childSnapshot) => {
+            const blog = childSnapshot.val();
+            const blogItemHTML = `
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__img">
+                        <img src="${blog.image}" alt="Blog Image">
+                    </div>
+                    <div class="blog-slider__content">
+                        <span class="blog-slider__code">${blog.date}</span>
+                        <div class="blog-slider__title">${blog.title}</div>
+                        <div class="blog-slider__text">${blog.content.substring(0, 100)}...</div>
+                        <a href="#" class="blog-slider__button">READ MORE</a>
+                    </div>
+                </div>
+            `;
+            blogSlider.innerHTML += blogItemHTML; // Append each blog
+        });
     });
-});
+}
+
+// Call the function to display blogs
+displayBlogs();

@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets/js/login.js"
     },
     {
+      "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/js/panel.js",
+      "PackagePath": "staticwebassets/js/panel.js"
+    },
+    {
       "Id": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

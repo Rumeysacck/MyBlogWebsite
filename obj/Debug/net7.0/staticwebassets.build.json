@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eVgu0Pd+loqQsGFPzsQut6K/DqVZv34e5VcQw53DncI=",
+  "Hash": "BMP3oN9pA42ovwVRgM0YZJ1vsfkadlXlVzr5txBur+k=",
   "Source": "MyBlogWebsite",
   "BasePath": "_content/MyBlogWebsite",
   "Mode": "Default",
@@ -202,6 +202,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/login.js"
+    },
+    {
+      "Identity": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/js/panel.js",
+      "SourceId": "MyBlogWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/",
+      "BasePath": "_content/MyBlogWebsite",
+      "RelativePath": "js/panel.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/panel.js"
     },
     {
       "Identity": "/Users/rumeysacicek/Desktop/MyBlogWebsite/wwwroot/js/site.js",

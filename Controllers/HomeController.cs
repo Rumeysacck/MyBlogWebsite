@@ -3,16 +3,23 @@ using System.Net;
 using System.Net.Mail;
 using Microsoft.AspNetCore.Mvc;
 using MyBlogWebsite.Models;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+
 
 namespace MyWebsite.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly HttpClient _httpClient;
+
+    
 
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
+         _httpClient = new HttpClient();
     }
 
 
@@ -26,10 +33,39 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Blogs()
+    public async Task<IActionResult> Blogs()
     {
-        return View();
+        string firebaseUrl = "https://myblog-f187d-default-rtdb.europe-west1.firebasedatabase.app/blogs.json";
+
+        try
+        {
+            // Fetch blogs from Firebase Realtime Database
+            HttpResponseMessage response = await _httpClient.GetAsync(firebaseUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string jsonData = await response.Content.ReadAsStringAsync();
+                
+                // Parse the JSON data into a JArray (using Newtonsoft.Json)
+                var blogs = JObject.Parse(jsonData);
+
+                // Pass the blog data to the view
+                return View(blogs);
+            }
+            else
+            {
+                // If request fails, log error and return empty view
+                _logger.LogError($"Failed to fetch blogs: {response.ReasonPhrase}");
+                return View(new JObject());
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error fetching blogs from Firebase: {ex.Message}");
+            return View(new JObject());
+        }
     }
+
     public IActionResult AdminPanel()
     {
         if (HttpContext.Session.GetString("isAdmin") != "true")
@@ -46,26 +82,26 @@ public class HomeController : Controller
         return View();
     }
 
-    // Giriş işlemi için POST isteği
+    
     [HttpPost]
     public IActionResult Login(string email, string password)
     {
-        // Retrieve admin credentials from environment variables
+        
     var adminEmail = Environment.GetEnvironmentVariable("ADMIN_EMAIL");
     var adminPassword = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
 
-    // Debugging: Log the retrieved values for confirmation
+    
     _logger.LogInformation($"Admin Email: {adminEmail}, Admin Password: {adminPassword}");
 
-    // Check if the provided email and password match the admin credentials
+    
     if (email == adminEmail && password == adminPassword)
     {
-        // Set the session variable to indicate that the user is an admin
+        
         HttpContext.Session.SetString("isAdmin", "true");
         return RedirectToAction("AdminPanel");
     }
 
-    // If the credentials do not match, return an error message
+    
     ViewBag.Error = "Geçersiz kullanıcı adı veya şifre.";
     return View();
     }

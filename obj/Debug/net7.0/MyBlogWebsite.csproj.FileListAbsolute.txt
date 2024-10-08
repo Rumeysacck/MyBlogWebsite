@@ -29,3 +29,16 @@
 /Users/rumeysacicek/Desktop/MyBlogWebsite/obj/Debug/net7.0/MyBlogWebsite.pdb
 /Users/rumeysacicek/Desktop/MyBlogWebsite/obj/Debug/net7.0/MyBlogWebsite.genruntimeconfig.cache
 /Users/rumeysacicek/Desktop/MyBlogWebsite/obj/Debug/net7.0/ref/MyBlogWebsite.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/FirebaseAdmin.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/Google.Api.Gax.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/Google.Api.Gax.Rest.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/Google.Apis.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/Google.Apis.Auth.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/Google.Apis.Core.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/System.CodeDom.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/System.Collections.Immutable.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/System.Management.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/bin/Debug/net7.0/runtimes/win/lib/net7.0/System.Management.dll
+/Users/rumeysacicek/Desktop/MyBlogWebsite/obj/Debug/net7.0/MyBlogWebsite.csproj.CopyComplete
