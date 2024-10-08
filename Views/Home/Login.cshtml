@@ -6,17 +6,16 @@
 <form class="login-form" method="post" action="/Home/Login">
     <h3 id="logo">Log In</h3>
 
-    <label for="adminEmail">Email</label>
-    <input type="text" id="adminEmail" name="adminEmail" placeholder="Type in your e-mail address..." autocomplete="off" required />
+    <label for="email">Email</label> <!-- name email olmalı -->
+    <input type="text" id="email" name="email" placeholder="Type in your e-mail address..." autocomplete="off" required />
 
-    <label for="adminPassword">Password</label>
+    <label for="password">Password</label> <!-- name password olmalı -->
     <div style="position: relative;">
-        <input type="password" id="adminPassword" name="adminPassword" placeholder="Enter your password..." autocomplete="off" required />
+        <input type="password" id="password" name="password" placeholder="Enter your password..." autocomplete="off" required />
         <a class="show-password" href="javascript:void(0);" onclick="togglePassword()">Show Password</a> <!-- Şifre gösterme butonunu sağa aldık -->
     </div>
 
     <a class="forgot" href="#">Forgot Password?</a>
-
 
     <input type="submit" name="submit" value="Log In" />
 </form>
@@ -27,7 +26,7 @@
 <!-- Şifre göster/gizle fonksiyonunu ekliyoruz -->
 <script>
 function togglePassword() {
-    var passwordInput = document.getElementById("adminPassword");
+    var passwordInput = document.getElementById("password");
     var toggleLink = document.querySelector(".show-password");
     if (passwordInput.type === "password") {
         passwordInput.type = "text";

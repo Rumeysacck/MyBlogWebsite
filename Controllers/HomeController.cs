@@ -33,11 +33,11 @@ public class HomeController : Controller
     public IActionResult AdminPanel()
     {
         if (HttpContext.Session.GetString("isAdmin") != "true")
-        {
-            return RedirectToAction("Login");
-        }
+    {
+        return RedirectToAction("Login");
+    }
 
-        return View();
+    return View();
         
     }
     [HttpGet]
@@ -50,20 +50,24 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Login(string email, string password)
     {
-        // Ortam değişkenlerinden admin email ve şifresini alıyoruz
-        var adminEmail = Environment.GetEnvironmentVariable("ADMIN_EMAIL");
-        var adminPassword = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
+        // Retrieve admin credentials from environment variables
+    var adminEmail = Environment.GetEnvironmentVariable("ADMIN_EMAIL");
+    var adminPassword = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
 
-        // Kullanıcıdan alınan email ve şifre ortam değişkenlerindeki değerlerle eşleşiyorsa
-        if (email == adminEmail && password == adminPassword)
-        {
-            // Giriş başarılı, admin paneline yönlendir
-            return RedirectToAction("AdminPanel");
-        }
+    // Debugging: Log the retrieved values for confirmation
+    _logger.LogInformation($"Admin Email: {adminEmail}, Admin Password: {adminPassword}");
 
-        // Giriş başarısızsa, hata mesajı döndür
-        ViewBag.Error = "Geçersiz kullanıcı adı veya şifre.";
-        return View();
+    // Check if the provided email and password match the admin credentials
+    if (email == adminEmail && password == adminPassword)
+    {
+        // Set the session variable to indicate that the user is an admin
+        HttpContext.Session.SetString("isAdmin", "true");
+        return RedirectToAction("AdminPanel");
+    }
+
+    // If the credentials do not match, return an error message
+    ViewBag.Error = "Geçersiz kullanıcı adı veya şifre.";
+    return View();
     }
 
 

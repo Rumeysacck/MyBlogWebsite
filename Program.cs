@@ -2,7 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSession(); // Session ekleniyor
+builder.Services.AddSession(); // Session yönetimi ekleniyor
 
 var app = builder.Build();
 
@@ -19,7 +19,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseSession(); 
+app.UseSession(); // Session kullanımını aktif hale getiriyoruz
 app.UseAuthorization();
 
 app.MapControllerRoute(
