@@ -1,60 +1,78 @@
-.blog-slider {
-    width: 95%;
-    position: relative;
-    max-width: 800px;
-    margin: auto;
+
+  
+  .blog-slider__wrp {
+    display: flex;
+    gap: 70px; /* Gap between the blog items */
+  }
+  
+  .blog-slider__item {
+    display: flex;
+    align-items: center;
     background: #fff;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 700px;
     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
     padding: 25px;
-    border-radius: 25px;
-    height: 400px;
-    transition: all .3s;
-}
-
-.blog-slider__img {
-    width: 300px;
-    height: 300px;
-    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
-    box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+    transition: all 0.3s;
+    flex-direction: row; /* Set horizontal layout */
+  }
+  
+  .blog-slider__img {
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient(to top right, #724540 -5%, #482020 100%);
+    box-shadow: 4px 13px 30px 1px rgba(0,0,0,0);
     border-radius: 20px;
     overflow: hidden;
-}
-
-.blog-slider__img img {
+    transform: translateX(-60px);
+  }
+  
+  .blog-slider__img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.blog-slider__content {
-    padding-right: 25px;
-}
-
-.blog-slider__code {
-    color: #7b7992;
-    margin-bottom: 15px;
     display: block;
+  }
+  
+  .blog-slider__content {
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .blog-slider__code {
+    color: #7b7992;
     font-weight: 500;
-}
-
-.blog-slider__title {
+    margin-bottom: 15px;
+  }
+  
+  .blog-slider__title {
     font-size: 24px;
     font-weight: 700;
     color: #0d0925;
     margin-bottom: 20px;
-}
-
-.blog-slider__text {
+  }
+  
+  .blog-slider__text {
     color: #4e4a67;
     margin-bottom: 30px;
     line-height: 1.5em;
-}
-
-.blog-slider__button {
-    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
-    padding: 15px 35px;
-    border-radius: 50px;
+  }
+  
+  .blog-slider__button {
+    background-image: linear-gradient(to top right, #724540 -5%, #482020 100%);
+    padding: 10px 30px;
+    border-radius: 40px;
     color: #fff;
     text-decoration: none;
-    font-weight: 500;
-}
+    font-weight: 300;
+    justify-content: center;
+    text-align: center;
+    transform: translateX(20px);
+    margin-top:20px;
+    position: relative; /* Add this */
+    top: 10px;
+  }
+  

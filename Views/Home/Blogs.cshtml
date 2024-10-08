@@ -1,16 +1,16 @@
 @model Newtonsoft.Json.Linq.JObject
 
 <div class="blog-slider">
-    <div class="blog-slider__wrp swiper-wrapper">
+    <div class="blog-slider__wrp">
         @if (Model != null && Model.HasValues)
         {
-            foreach (var blog in Model.Properties())
+            foreach (var blog in Model.Properties()) // Loop through the blog properties
             {
-                var blogContent = blog.Value; // Access the content of the blog object
-                
-                <div class="blog-slider__item swiper-slide">
+                var blogContent = blog.Value; // Access the content of each blog object
+
+                <div class="blog-slider__item">
                     <div class="blog-slider__img">
-                        <img src="@blogContent["image"]" alt="Blog Image">
+                        <img src="@blogContent["image"]" alt="Blog Image" />
                     </div>
                     <div class="blog-slider__content">
                         <span class="blog-slider__code">@blogContent["date"]</span>
@@ -26,8 +26,5 @@
             <p>No blogs available.</p>
         }
     </div>
-    <div class="blog-slider__pagination"></div>
 </div>
-
-<!-- Add your Swiper script here -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="~/css/blog.css" />
